@@ -1,0 +1,43 @@
+
+  .custom-button {
+    background-color:   #c9d7e8;
+    border-color:  #c9d7e8 ; /* If you want the border to have the same color */
+  }
+  
+  /* Ensure text color contrast for accessibility */
+  .custom-button:hover,
+  .custom-button:focus,
+  .custom-button:active {
+    background-color:   #c9d7e8; /* A slightly darker shade for hover, focus, and active states */
+    border-color:   #c9d7e8;
+  }
+
+  .custom-alert {
+    background: #fff;
+    border-radius: 4px;
+    padding: 20px;
+    position: fixed; /* or absolute, depending on your layout */
+    top: 50%; /* adjust as necessary */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 300px; /* adjust as necessary */
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content-wrapper {
+    flex: 1;
+   
+  }
+  
+
+  

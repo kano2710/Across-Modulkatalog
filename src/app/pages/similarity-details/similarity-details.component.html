@@ -1,0 +1,184 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Across | Similar Module Details</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">Similar Module Details</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card module-detail-card shadow-lg">
+              <div class="card-body">
+                <div class="row mb-2">
+                  <div class="col-12">
+                    <h4
+                      class="badge badge-light py-2 px-2"
+                      style="color: #0056b3; margin-right: 5px"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="#0056b3"
+                        class="bi bi-bookmarks-fill"
+                        viewBox="0 0 16 16"
+                        style="margin-right: 5px"
+                      >
+                        <path
+                          d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5z"
+                        />
+                        <path
+                          d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1z"
+                        /></svg>{{ selectedModule.courseID }} |
+                      {{ selectedModule.courseName }}
+                    </h4>
+
+                    <h4
+                      class="badge badge-light py-2 px-2"
+                      style="color: #d9534f"
+                    >
+                      <i
+                        class="fa fa-university"
+                        aria-hidden="true"
+                        style="margin-right: 5px; width: 16; height: 16"
+                      ></i
+                      >{{ selectedModule.uniID }} | {{ selectedModule.uniName }}
+                    </h4>
+                  </div>
+                </div>
+                <hr />
+
+                <div class="row mb-2">
+                  <div class="col-md-6 important-text">
+                    <strong>Module ID:</strong> {{ selectedModule.modID }}
+                  </div>
+                  <div class="col-md-6 important-text">
+                    <strong>Module Name:</strong> {{ selectedModule.modName }}
+                  </div>
+                </div>
+
+                <div
+                  class="mb-2 credit"
+                  style="display: flex; align-items: baseline"
+                >
+                  <label>Module Credit: </label>
+                  <div style="color: rgb(90, 88, 88); margin-left: 3px">
+                    {{ selectedModule.modCredit }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-bottom mb-3"></div>
+
+            <div *ngIf="this.similarityResults.length === 0">
+              <h4>No Similar Module Found!</h4>
+            </div>
+            <div
+              *ngIf="this.similarityResults.length !== 0"
+              class="similar-modules"
+              style="margin-top: 20px"
+            >
+              <h4 class="mb-3">
+                Similar Modules
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-patch-check-fill"
+                  viewBox="0 0 16 16"
+                  style="margin-right: 5px"
+                >
+                  <path
+                    d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"
+                  />
+                </svg>
+              </h4>
+              <mat-accordion multi="true">
+                <mat-expansion-panel *ngFor="let module of similarityResults" class="mb-1">
+                  <mat-expansion-panel-header class="module-header">
+                    <mat-panel-title>
+                      <div class="module-summary">
+                        <h4
+                          class="badge badge-light py-2 px-2"
+                          style="
+                            color: rgb(25, 18, 119);
+                            margin-top: 4px;
+                            background-color: rgb(243, 244, 250);
+                            font-weight: 900;
+                          "
+                        >
+                          {{ module.modID }} | {{ module.modName }}
+                        </h4>
+
+                        <span class="similarity-score"
+                          >Similarity:
+                          {{
+                            module.similarityScore * 100 | number : "1.0-2"
+                          }}%</span
+                        >
+                      </div>
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+                  <div class="module-details">
+                    <!-- Rest of the module details -->
+                    <p><strong>Module ID:</strong> {{ module.modID }}</p>
+                    <p><strong>Module Name:</strong> {{ module.modName }}</p>
+                    <p>
+                      <strong>Module Description:</strong> {{ module.modDesc }}
+                    </p>
+                    <p>
+                      <strong>Module Credit:</strong> {{ module.modCredit }}
+                    </p>
+                    <h3
+                      class="badge badge-light py-2 px-2 mr-2"
+                      style="
+                        color: black;
+                        margin-top: 4px;
+                        background-color: rgb(228, 225, 221);
+                      "
+                    >
+                      <i
+                        class="fa fa-university"
+                        aria-hidden="true"
+                        style="margin-right: 5px; width: 16; height: 16"
+                      ></i
+                      >{{ module.uniID }} | {{ module.uniName }}
+                    </h3>
+                    <button
+                      *ngIf="userRole === '2'"
+                      class="btn btn-primary"
+                      (click)="requestParticipation(module.modUID)"
+                    >
+                      Enroll
+                    </button>
+                  </div>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer-in></app-footer-in>
+</div>

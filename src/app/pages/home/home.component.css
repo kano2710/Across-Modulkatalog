@@ -1,0 +1,21 @@
+.center-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 656px;
+}
+.background-image {
+  background-image: url('../../../assets/janko-ferlic-sfL_QOnmy00-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.8;
+}
+
+.credit {
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+}

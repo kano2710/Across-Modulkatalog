@@ -1,0 +1,74 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Across | Show Courses</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">Show Course</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div *ngIf="deleteSuccess" class="alert alert-success" role="alert">
+            <i class="fa fa-check-circle" style="color: green"></i> Course deletion
+            has been successful!
+          </div>
+  
+          <div *ngIf="deleteError" class="alert alert-danger" role="alert">
+            <i class="fa fa-exclamation-circle" style="color: red"></i> Error! The
+            course deletion failed. Please try again.
+          </div>
+        </div>
+        
+        <div class="row mb-3">
+          <div *ngFor="let course of courses" class="col-12">
+            <div class="card card-outline card-info" style="padding: 20px;">
+              <div class="card-title"><h4 class="badge badge-light py-2 px-2" style="color: #0069d9; font-size: small;">
+                <i class="fa fa-university" aria-hidden="true"></i>
+                {{ course.universityName }}
+              </h4></div>
+              
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  
+                  <h5 class="card-title fst-italic" style="font-family: Georgia, 'Times New Roman', Times, serif; font-weight: bold;">
+                    {{ course.CourseName }}
+                  </h5>
+                  <p class="card-text" style="color: grey; font-weight: bold;">
+                    Course ID: {{ course.CourseID }}
+                  </p>
+                </div>
+                <div class="col-md-4 text-md-right">
+                  <div class="edit-delete-buttons">
+                  <button class="btn btn-outline-secondary" (click)="editCourse(course.CourseID)">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="btn btn-outline-danger" style="margin-left: 10px;" (click)="deleteCourse(course.CourseID)">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </div>
+                </div>
+              </div>
+            </div>         
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <app-footer-in></app-footer-in>
+</div>

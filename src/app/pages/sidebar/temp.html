@@ -1,0 +1,206 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="#" class="brand-link">
+      <img src="../../../assets/Favicon_Blue.png" alt="ZephWeb Logo" class="brand-image img-circle elevation-3"
+        style="opacity: 0.8" />
+      <span class="brand-text font-weight-light">Across University</span>
+    </a>
+  
+    <div class="sidebar">
+      <nav class="mt-2">
+        <div class="form-inline">
+          <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search"
+              id="search" />
+            <div class="input-group-append">
+              <button class="btn btn-sidebar">
+                <i class="fas fa-search fa-fw"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Admin Profile -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+            <a href="/profile" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <!-- Enrolled Student Profile -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+            <a href="/profile-enrolled" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <!-- Admin Dashboard -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+            <a href="/admin-dsb" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <!-- Enrolled Student Dashboard -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+            <a href="/enrolled-student" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <!-- Admin User Management -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                User Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="/user-permissions" class="nav-link">
+                  <i class="fas fa-key nav-icon"></i>
+                  <p>Permissions</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Admin Course Management -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Course Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="/add-course" class="nav-link">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Add Course</p>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="/show-course" class="nav-link">
+                  <i class="fas fa-eye nav-icon"></i>
+                  <p>Show Course</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Admin (For Admin Not Needed Right Now)and Enrolled Student Module Search -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-book"></i>
+              <p>
+                Module Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+                <a href="/show-modules-en" class="nav-link">
+                  <i class="fas fa-eye nav-icon"></i>
+                  <p>Show All Module</p>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="/show-modules" class="nav-link">
+                  <i class="fas fa-eye nav-icon"></i>
+                  <p>Show All Module</p>
+                </a>
+              </li>
+            </ul>
+  
+          </li>
+  
+          <!-- Admin Module Management -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Module Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="/add-module" class="nav-link">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Add Module</p>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="module-list" class="nav-link">
+                  <i class="fas fa-eye nav-icon"></i>
+                  <p>Show Modules</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+  
+          <!-- Enrolled Student Can View Credit Transfer Request Status -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+            <a href="/request-status" class="nav-link">
+              <i class="fas fa-eye nav-icon"></i>
+              <p>Credit Transfer Request Status</p>
+            </a>
+          </li>
+  
+          <!-- Admin Credit Transfer Management -->
+          <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-graduation-cap"></i>
+              <p>
+                Credit Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="/credit-transfer-request-admin" class="nav-link">
+                  <i class="fas fa-clock nav-icon"></i>
+                  <p>Pending Requests</p>
+                </a>
+              </li>
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="/approved-requests" class="nav-link">
+                  <i class="fas fa-check nav-icon"></i>
+                  <p>Approved Requests</p>
+                </a>
+              </li>
+              <!-- <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-edit nav-icon"></i>
+                  <p>Update Requests</p>
+                </a>
+              </li> -->
+            </ul>
+          </li>
+  
+          <!-- Admin Credit Transfer Management Below Not Needed Right Now -->
+          <!-- <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-star"></i>
+              <p>
+                Credit Management
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+                <a href="#" class="nav-link">
+                  <i class="fas fa-plus nav-icon"></i>
+                  <p>Transfer Credits</p>
+                </a>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+             
+            </ul>
+          </li> -->
+        </ul>
+      </nav>
+    </div>
+  </aside>

@@ -1,0 +1,129 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Enrolled Student | Profile</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">Profile</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2 d-none d-md-block"></div>
+          <div class="col-12 col-md-8">
+            <div class="card card-outline card-primary" *ngIf="!showUpdateForm">
+              <div class="card-header">
+                <h2 class="card-title centered-header mb-0">User Profile</h2>
+              </div>
+              <div class="card-body">
+                <p class="card-text">
+                  <strong>Email: </strong> {{ user.email }}
+                </p>
+                <p class="card-text">
+                  <strong>First Name: </strong> {{ user.fname }}
+                </p>
+                <p class="card-text">
+                  <strong>Last Name: </strong> {{ user.lname }}
+                </p>
+                <p class="card-text">
+                  <strong>Address: </strong>
+                  {{ user.address || "Not provided" }}
+                </p>
+                <p class="card-text">
+                  <strong>Phone: </strong> {{ user.phone || "Not provided" }}
+                </p>
+                <p class="card-text">
+                  <strong>University: </strong>
+                  {{ user.university || "Not provided" }}
+                </p>
+                <div class="d-flex justify-content-center mt-4">
+                  <button class="btn btn-primary" (click)="showUpdateForm = !showUpdateForm">
+                    Update Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card card-outline card-info" *ngIf="showUpdateForm">
+              <div class="card-header">
+                <h2 class="card-title centered-header mb-0">
+                  Edit User Profile
+                </h2>
+              </div>
+              <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" [(ngModel)]="user.email" name="email" required
+                      disabled />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" id="firstname" [(ngModel)]="user.fname" name="fname"
+                      required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" id="lastname" [(ngModel)]="user.lname" name="lname"
+                      required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" class="form-control" id="address" [(ngModel)]="user.address" name="address" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" [(ngModel)]="user.phone" name="phone" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="university">University</label>
+                    <input type="text" class="form-control" id="university" [(ngModel)]="user.university"
+                      name="university" required disabled />
+                  </div>
+
+                  <!-- <div class="form-group">
+                    <label for="course">Course Name</label>
+                    <select class="form-control" id="course" [(ngModel)]="user.course" name="course" required>
+                      <option value="" disabled selected>--- Select your course ---</option>
+                      <option *ngFor="let course of courses" [value]="course.id">{{ course.name }}</option>
+                    </select>
+                  </div> -->
+
+                  <div class="form-group d-flex flex-column flex-md-row justify-content-around my-3">
+                    <!-- <button type="reset" class="btn btn-secondary my-1 mx-md-1 col-12 col-md-4">Reset</button> -->
+                    <button type="button" class="btn btn-danger my-1 mx-md-1 col-12 col-md-4" (click)="showUpdateForm = false">Cancel</button>
+                    <button type="submit" class="btn btn-success my-1 mx-md-1 col-12 col-md-4" (click)="onSubmit()">Submit</button>
+                  </div>
+                  
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 d-none d-md-block"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <app-footer-in></app-footer-in>
+</div>

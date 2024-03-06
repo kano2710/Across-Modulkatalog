@@ -1,0 +1,129 @@
+
+
+.timeline {
+    position: relative;
+   margin-left: 15px;
+  }
+  
+
+  .timeline-item {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+  }
+  
+
+  .timeline i {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    color: #0a0a0a;
+    position: absolute;
+    left: -15px;
+  }
+  
+  
+  .timeline i.bg-gray {
+    background-color: #6c757d;
+  }
+  
+  .timeline i.bg-green {
+    background-color: #28a745; 
+  }
+  
+  .timeline i.bg-blue {
+    background-color: #007bff; 
+  }
+  
+  .timeline i.bg-purple {
+    background-color: #6f42c1; 
+  }
+  
+  /* Highlighted styles for the active step */
+  .active-step .timeline-item {
+    background-color: #e9ecef; /* Slightly darker background for active step */
+    border-color: #007bff; /* Blue border for active step */
+  }
+  
+  .active-step i {
+    transform: scale(1.1); /* Slightly larger icon for active step */
+    background-color: #007bff; 
+  }
+  
+ 
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ddd; 
+  }
+  
+ 
+  .active-step::before,
+  .active-step ~ .timeline-step::before {
+    background: #007bff; 
+  }
+  .horizontal-timeline .items {
+    border-top: 3px solid #47484a;
+  }
+  
+  .horizontal-timeline .items .items-list {
+    display: block;
+    position: relative;
+    text-align: center;
+    padding-top: 70px;
+    margin-right: 0;
+  }
+  
+  .horizontal-timeline .items .items-list:before {
+    content: "";
+    position: absolute;
+    height: 36px;
+    border-right: 2px dashed  #47484a;
+    top: 0;
+  }
+  
+  .horizontal-timeline .items .items-list .event-date {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    width: 75px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    padding-top: 8px;
+  }
+  .horizontal-timeline {
+   
+    margin-top: 60px;
+  }
+  @media (min-width: 1140px) {
+    .horizontal-timeline .items .items-list {
+      display: inline-block;
+      width: 24%;
+      padding-top: 45px;
+    }
+  
+    .horizontal-timeline .items .items-list .event-date {
+      top: -40px;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content-wrapper {
+    flex: 1;
+   
+  }
+  

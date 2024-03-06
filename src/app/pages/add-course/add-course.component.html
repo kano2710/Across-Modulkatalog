@@ -1,0 +1,120 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Across | Add Course</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">Add Course</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 
+    <div *ngIf="message" class="card mt-3"></div> -->
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+          <div class="col-md-3 d-none d-md-block"></div>
+          <div class="formCard col-12 col-md-6">
+            <div class="card card-outline card-primary">
+              <div class="card-header text-center">
+                <h2 class="card-title centered-header mb-0">Add New Course</h2>
+              </div>
+              <div class="card-body">
+                <form [formGroup]="courseForm" (ngSubmit)="addCourse()">
+                  <div class="input-group mb-3">
+                    <input
+                      formControlName="CourseID"
+                      class="form-control"
+                      placeholder="Course ID"
+                      id="CourseID"
+                      required
+                    />
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-id-card"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input
+                      formControlName="CourseName"
+                      class="form-control"
+                      placeholder="Course Name"
+                      id="CourseName"
+                      required
+                    />
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-graduation-cap"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <textarea
+                      formControlName="CourseDetails"
+                      class="form-control"
+                      placeholder="Course Details"
+                      id="CourseDetails"
+                      rows="15"
+                      required
+                    ></textarea>
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-info-circle"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="input-group mb-3">
+                    <input
+                      formControlName="CourseDuration"
+                      class="form-control"
+                      placeholder="Course Duration"
+                      id="CourseDuration"
+                      required
+                    />
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-clock"></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-6 mb-2">
+                      <button type="submit" class="btn btn-primary btn-block">
+                        Add Course
+                      </button>
+                    </div>
+                    <div class="col-6">
+                      <button type="reset" class="btn btn-secondary btn-block">
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-none d-md-block"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <app-footer-in></app-footer-in>
+</div>

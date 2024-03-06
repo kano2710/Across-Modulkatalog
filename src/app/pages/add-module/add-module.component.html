@@ -1,0 +1,313 @@
+<div class="wrapper">
+  <!-- Navbar Component -->
+  <app-navbar-in></app-navbar-in>
+
+  <!-- Sidebar Component -->
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Across | Add Module</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Add Module</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2 d-none d-md-block"></div>
+          <div class="col-md-8">
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h2
+                  class="card-title"
+                  style="font-weight: 800; color: #0d6efd; margin-top: 2px"
+                >
+                  <i class="fas fa-plus-circle mr-2"></i> Add Module
+                </h2>
+              </div>
+  
+              <div class="card-body">
+                <div *ngIf="uniId == 'TUC_2024'">
+                  <form>
+                    <div class="form-group">
+                      <label for="courseSelect">Select Course</label>
+                      <select
+                        class="form-control"
+                        id="courseSelect"
+                        (change)="onCourseSelected($event)"
+                        required
+                      >
+                        <option value="">--Please choose an option--</option>
+                        <option
+                          *ngFor="let course of courses"
+                          [value]="course.CourseID"
+                        >
+                          {{ course.CourseName }}
+                        </option>
+                      </select>
+                    </div>
+  
+                    <div class="form-group">
+                      <label for="moduleUpload">Upload Your Modules</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input
+                            type="file"
+                            class="custom-file-input"
+                            id="moduleUpload"
+                            (change)="onFileSelected($event)"
+                          />
+                          <label class="custom-file-label" for="moduleUpload">{{
+                            selectedFileName
+                          }}</label>
+                        </div>
+                        <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="card-footer">
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="onSubmit()"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+  
+                <div *ngIf="uniId !== 'TUC_2024'" class="form-group">
+                  <div class="form-group">
+                    <label for="courseSelect">Select Course</label>
+                    <select
+                      class="form-control"
+                      id="courseSelect"
+                      (change)="onCourseSelected($event)"
+                      required
+                    >
+                      <option value="">--Please choose an option--</option>
+                      <option
+                        *ngFor="let course of courses"
+                        [value]="course.CourseID"
+                      >
+                        {{ course.CourseName }}
+                      </option>
+                    </select>
+                  </div>
+  
+                  <form [formGroup]="moduleForm">
+                    <!-- Module ID Input -->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="moduleIdInput">Module ID</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Module ID"
+                            required
+                            formControlName="moduleID"
+                            [class.invalid-field]="isFieldInvalid('moduleID')"
+                          />
+                          <div
+                            *ngIf="isFieldInvalid('moduleID')"
+                            class="error-message"
+                          >
+                            Module ID is required.
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- Module Name Input -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="moduleNameInput">Module Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Module Name"
+                            formControlName="moduleName"
+                            [class.invalid-field]="isFieldInvalid('moduleName')"
+                            required
+                          />
+                          <div
+                            *ngIf="isFieldInvalid('moduleName')"
+                            class="error-message"
+                          >
+                            Module Name is required.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Module Description Input -->
+                    <div class="form-group mb-3">
+                      <label for="moduleDescriptionInput"
+                        >Module Description</label
+                      >
+                      <div class="form-group">
+                        <textarea
+                          class="form-control"
+                          id="moduleDescriptionInput"
+                          placeholder="Enter Module Description"
+                          required
+                          formControlName="moduleDescription"
+                          [class.invalid-field]="
+                            isFieldInvalid('moduleDescription')
+                          "
+                        ></textarea>
+                        <div
+                          *ngIf="isFieldInvalid('moduleDescription')"
+                          class="error-message"
+                        >
+                          Module Description is required.
+                        </div>
+                      </div>
+                    </div>
+  
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="moduleIdInput">Module Duration</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Module Duration"
+                            formControlName="moduleDuration"
+                            required
+                            [class.invalid-field]="
+                              isFieldInvalid('moduleDuration')
+                            "
+                          />
+                          <div
+                            *ngIf="isFieldInvalid('moduleDuration')"
+                            class="error-message"
+                          >
+                            Module Duration is required.
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- Module Requirements Input -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="moduleNameInput">Module Requirements</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Module Requirements"
+                            formControlName="moduleREQ"
+                            required
+                            [class.invalid-field]="isFieldInvalid('moduleREQ')"
+                          />
+                          <div
+                            *ngIf="isFieldInvalid('moduleREQ')"
+                            class="error-message"
+                          >
+                            Module Requirements is required if no requirements
+                            enter none!.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- Module Mode of Exams Input -->
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="moduleIdInput">Module Mode of Exam</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Module Mode of Exams"
+                            formControlName="moduleMOE"
+                            required
+                            [class.invalid-field]="isFieldInvalid('moduleMOE')"
+                          />
+                          <div
+                            *ngIf="isFieldInvalid('moduleMOE')"
+                            class="error-message"
+                          >
+                            Module Mode of Exam is required!.
+                          </div>
+                        </div>
+                      </div>
+  
+                      <!-- Module Credit Input -->
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="moduleNameInput">Module Credit</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Module Credit"
+                            formControlName="moduleCredit"
+                            required
+                            [class.invalid-field]="isFieldInvalid('moduleCredit')"
+                          />
+                          <div
+                            *ngIf="isFieldInvalid('moduleCredit')"
+                            class="error-message"
+                          >
+                            Module Credit is required!.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!-- Submit Button -->
+                    <div class="text-center mt-3">
+                      <button
+                        type="button"
+                        class="btn btn-primary mr-3"
+                        (click)="onSubmit()"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="16"
+                          style="margin-right: 2px"
+                          height="16"
+                          fill="currentColor"
+                          class="bi bi-folder-plus"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="m.5 3 .04.87a2 2 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14H9v-1H2.826a1 1 0 0 1-.995-.91l-.637-7A1 1 0 0 1 2.19 4h11.62a1 1 0 0 1 .996 1.09L14.54 8h1.005l.256-2.819A2 2 0 0 0 13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2m5.672-1a1 1 0 0 1 .707.293L7.586 3H2.19q-.362.002-.683.12L1.5 2.98a1 1 0 0 1 1-.98z"
+                          />
+                          <path
+                            d="M13.5 9a.5.5 0 0 1 .5.5V11h1.5a.5.5 0 1 1 0 1H14v1.5a.5.5 0 1 1-1 0V12h-1.5a.5.5 0 0 1 0-1H13V9.5a.5.5 0 0 1 .5-.5"
+                          />
+                        </svg>
+                        Add
+                      </button>
+                      <button type="reset" class="btn btn-secondary">
+                        Reset
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 d-none d-md-block"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer Component -->
+  <app-footer-in></app-footer-in>
+</div>

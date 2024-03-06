@@ -1,0 +1,99 @@
+<div class="wrapper">
+
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar> 
+
+  <div class="content-wrapper" style="min-height: 724px">
+
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Across | Admin Dashboard</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">Admin Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <div class="container-fluid">
+      
+        <div class="row">
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-info shadow">
+              <div class="inner">
+                <h3>{{ totalUni }}</h3>
+                <p>Total Universities</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-university"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer"
+                >More info <i class="fas fa-arrow-circle-right"></i
+              ></a> -->
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-success shadow">
+              <div class="inner">
+                <h3>{{ totalStudents }}<sup style="font-size: 20px"></sup></h3>
+                <p>Total Enrolled Students</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer"
+                >More info <i class="fas fa-arrow-circle-right"></i
+              ></a> -->
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-warning shadow">
+              <div class="inner">
+                <h3>{{ totalCourses }}</h3>
+                <p>Total Courses</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer"
+                >More info <i class="fas fa-arrow-circle-right"></i
+              ></a> -->
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-6">
+            <div class="small-box bg-danger shadow">
+              <div class="inner">
+                <h3>{{ totalModules }}</h3>
+                <p>Total Modules</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <!-- <a href="#" class="small-box-footer"
+                >More info <i class="fas fa-arrow-circle-right"></i
+              ></a> -->
+            </div>
+          </div>
+        </div>
+
+        <app-search-modules></app-search-modules>
+
+      </div>
+    </section>
+
+  </div>
+
+  <app-footer-in></app-footer-in>
+
+</div>

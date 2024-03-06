@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Across | Update Module</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/home">Home</a></li>
+              <li class="breadcrumb-item active">Update Module</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <!-- Form Column -->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-3 d-md-block d-none"></div>
+          <div class="col-md-6 col-12">
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Update Module</h3>
+            </div>
+              <div class="card-body">
+                <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="modName">Module Name</label>
+                      <input type="text" formControlName="modName" id="modName" placeholder="Enter Module Name"
+                        class="form-control" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="modCredit">Module Credit</label>
+                      <input type="text" formControlName="modCredit" id="modCredit" placeholder="Enter Module Credit"
+                        class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="modDesc">Module Description</label>
+                    <textarea formControlName="modDesc" id="modDesc" placeholder="Enter Module Description"
+                      class="form-control" rows="10"></textarea>
+                  </div>
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="modDuration">Module Duration</label>
+                      <input type="text" formControlName="modDuration" id="modDuration"
+                        placeholder="Enter Module Duration" class="form-control" />
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="modMOE">Mode of Exam</label>
+                      <input type="text" formControlName="modMOE" id="modMOE" placeholder="Enter Mode of Exam"
+                        class="form-control" />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="modREQ">Module Requirement</label>
+                    <input type="text" formControlName="modREQ" id="modREQ" placeholder="Enter Module Requirement"
+                      class="form-control" />
+                  </div>
+
+                  <div class="text-end">
+                    <button type="submit" class="btn custom-button">
+                      Update Module
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 d-md-block d-none"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer-in></app-footer-in>
+</div>

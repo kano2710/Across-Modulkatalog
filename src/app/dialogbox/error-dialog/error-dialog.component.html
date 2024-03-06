@@ -1,0 +1,8 @@
+<!-- error-dialog.component.html -->
+<h1 mat-dialog-title><i class="fas fa-times-circle" style="color: red;"></i> Error!</h1>
+<div mat-dialog-content>
+  <p>{{data.message}}</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="closeDialog()">Close</button>
+</div>

@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Approve Credit Transfer</h2>
+<mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Credit</mat-label>
+    <input matInput [(ngModel)]="credit">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="credit" cdkFocusInitial>Submit</button>
+</mat-dialog-actions>

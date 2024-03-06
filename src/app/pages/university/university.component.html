@@ -1,0 +1,18 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <div class="content-wrapper">
+    <div class="center-content">
+      <div class="card-container">
+        <div *ngFor="let university of universities" class="card">
+          <img [src]="university.imageUrl" alt="University Image" class="card-image" />
+          <div class="card-body">
+            <h3 class="university-name">{{ university.name }}</h3>
+            <p>Location: {{ university.location }}</p>
+            <a [href]="university.website" target="_blank">Visit Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

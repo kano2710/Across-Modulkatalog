@@ -1,0 +1,8 @@
+@media print {
+    app-sidebar,
+    app-navbar-in,
+    button,
+    app-footer-in {
+      display: none;
+    }
+  }

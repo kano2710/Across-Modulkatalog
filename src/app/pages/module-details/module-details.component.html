@@ -1,0 +1,155 @@
+<div class="wrapper">
+  <!-- Navbar Component -->
+  <app-navbar-in></app-navbar-in>
+
+  <!-- Sidebar Component -->
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="container-fluid">
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-1">
+            <div class="col-sm-6">
+              <h4 class="m-0">Across | Module Details</h4>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active">Module Details</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="container-fluid">
+          <div class="card module-detail-card shadow-lg">
+            <div class="card-body">
+              <div class="row mb-2">
+                <div class="col-12">
+                  <h4
+                    class="badge badge-light py-2 px-2"
+                    style="color: #0056b3; margin-right: 5px"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="#0056b3"
+                      class="bi bi-bookmarks-fill"
+                      viewBox="0 0 16 16"
+                      style="margin-right: 5px"
+                    >
+                      <path
+                        d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5z"
+                      />
+                      <path
+                        d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1z"
+                      /></svg>{{ module.courseID }} | {{ module.courseName }}
+                  </h4>
+    
+                  <h4 class="badge badge-light py-2 px-2" style="color: #d9534f">
+                    <i
+                      class="fa fa-university"
+                      aria-hidden="true"
+                      style="margin-right: 5px; width: 16; height: 16"
+                    ></i
+                    >{{ module.uniID }} | {{ module.uniName }}
+                  </h4>
+                </div>
+              </div>
+              <hr />
+    
+              <div class="row mb-2">
+                <div class="col-md-6 important-text">
+                  <strong>Module ID:</strong> {{ module.modID }}
+                </div>
+                <div class="col-md-6 important-text">
+                  <strong>Module Name:</strong> {{ module.modName }}
+                </div>
+              </div>
+    
+              <div class="mb-2">
+                <label>Module Description:</label>
+                <div style="color: rgb(90, 88, 88)">{{ module.modDesc }}</div>
+              </div>
+    
+              <div class="mb-2 credit" style="display: flex; align-items: baseline;">
+                <label>Module Duration :</label>
+                <div style="color: rgb(90, 88, 88)">{{ module.modDuration }} Semester</div>
+              </div>
+    
+              <div class="mb-2">
+                <label>Mode of Exam:</label>
+                <div style="color: rgb(90, 88, 88)">{{ module.modMOE }}</div>
+              </div>
+    
+              <div class="mb-2">
+                <label>Module Requirement </label>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  class="bi bi-clipboard2-check"
+                  viewBox="0 0 16 16"
+                  style="margin-left: 5px"
+                >
+                  <path
+                    d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5z"
+                  />
+                  <path
+                    d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z"
+                  />
+                  <path
+                    d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0z"
+                  />
+                </svg>
+                <div style="color: rgb(90, 88, 88)">{{ module.modREQ }}</div>
+              </div>
+              <div class="mb-2 credit" style="display: flex; align-items: baseline;">
+                <label style="margin-right: 10px;">Module Credit:</label>
+                <div style="color: rgb(90, 88, 88);">{{ module.modCredit }}</div>
+              </div>
+              
+              
+              <div class="text-center mt-3">
+                <button (click)="checkSimilarity()" class="btn btn-primary btn-md">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-patch-check-fill"
+                    viewBox="0 0 16 16"
+                    style="margin-right: 5px"
+                  >
+                    <path
+                      d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"
+                    />
+                  </svg>
+                  Check Similarity Score
+                </button>
+              </div>
+            </div>
+          </div>
+    
+          <div *ngIf="showSimilarityResults" class="col-12">
+            <h5>Similarity Results</h5>
+            <div id="chartsContainer" class="chart-row"></div>
+            <div class="text-center mt-4">
+              <button (click)="backToModuleDetails()" class="btn btn-secondary">
+                Back to Module Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </div>
+  </div>
+
+  <app-footer-in></app-footer-in>
+</div>

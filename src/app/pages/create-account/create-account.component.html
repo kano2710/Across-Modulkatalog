@@ -1,0 +1,213 @@
+<div id="background1">
+  <main class="register-box">
+    <div class="register-logo"></div>
+
+    <div class="card">
+      <div class="card-header text-center">
+        <img
+          src="assets/Across_New.svg"
+          alt="Across New Logo"
+          class="img-fluid"
+        />
+      </div>
+
+      <div class="card-body register-card-body">
+        <p class="login-box-msg text-bold">Register for an Across Membership</p>
+        <form action="#" method="post">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              [(ngModel)]="firstname"
+              name="firstname"
+              class="form-control"
+              placeholder="First name"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              [(ngModel)]="lastname"
+              name="lastname"
+              class="form-control"
+              placeholder="Last name"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-user"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="email"
+              [(ngModel)]="email"
+              name="email"
+              class="form-control"
+              placeholder="Email"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                [(ngModel)]="selectedMainOption"
+                name="mainRadios"
+                id="student"
+                value="student"
+              />
+              <label class="form-check-label" for="student">Student</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                [(ngModel)]="selectedMainOption"
+                name="mainRadios"
+                id="university"
+                value="university"
+              />
+              <label class="form-check-label" for="university"
+                >University</label
+              >
+            </div>
+          </div>
+
+          <div *ngIf="selectedMainOption === 'student'">
+            <div class="form-check" *ngFor="let option of studentOptions">
+              <input
+                class="form-check-input"
+                type="radio"
+                [(ngModel)]="selectedSubOption"
+                name="subRadios"
+                [id]="option.id"
+                [value]="option.value"
+              />
+              <label class="form-check-label" [for]="option.id">{{
+                option.label
+              }}</label>
+            </div>
+          </div>
+
+          <div *ngIf="selectedMainOption === 'university'">
+            <div class="form-check" *ngFor="let option of universityOptions">
+              <input
+                class="form-check-input"
+                type="radio"
+                [(ngModel)]="selectedSubOption"
+                name="subRadios"
+                [id]="option.id"
+                [value]="option.value"
+                (change)="selectSubOption(option.value, 'university')"
+              />
+              <label class="form-check-label" [for]="option.id">{{
+                option.label
+              }}</label>
+            </div>
+          </div>
+
+          <div *ngIf="[2, 4, 5, 6].includes(selectedSubOption)">
+            <div class="form-group">
+              <label for="university">Select University</label>
+              <select
+                class="form-control"
+                [(ngModel)]="university"
+                name="university"
+              >
+                <option value="" disabled selected>
+                  Select your university
+                </option>
+                <option *ngFor="let uni of universities" [value]="uni.id">
+                  {{ uni.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              [(ngModel)]="password"
+              name="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              [(ngModel)]="confirmPassword"
+              name="confirmPassword"
+              class="form-control"
+              placeholder="Retype password"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+            <!-- <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                <label for="agreeTerms" style="margin-left: 5px;">
+                                    I agree to the <a href="#">terms</a>
+                                </label>
+                            </div>
+                        </div> -->
+
+            <div class="col">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                (click)="createAccount()"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </form>
+        <a href="../login" class="text-center">I already have a membership</a>
+      </div>
+    </div>
+
+    <p class="credit mt-2">
+      Photo by
+      <a
+        href="https://unsplash.com/@itfeelslikefilm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >🇸🇮 Janko Ferlič</a
+      >
+      on
+      <a
+        href="https://unsplash.com/photos/photo-of-library-with-turned-on-lights-sfL_QOnmy00?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >Unsplash</a
+      >
+    </p>
+  </main>
+</div>

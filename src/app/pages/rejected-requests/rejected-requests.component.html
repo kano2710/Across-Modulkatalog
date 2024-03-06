@@ -1,0 +1,137 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="container-fluid">
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-1">
+            <div class="col-sm-6">
+              <h4 class="m-0">Across | Rejected Requests</h4>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                  <a href="/home">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Rejected Requests</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+              <div *ngFor="let transfer of rejectedRequests" class="card module-detail-card shadow-lg">
+                <div class="card-body">
+                  <div class="row mb-2">
+                    <div class="col-md-6 important-text">
+                      <strong>Request ID:</strong> {{ transfer.requestId }}
+                    </div>
+                    <div class="col-md-4">
+                      <strong>Status: </strong>
+                      <span class="badge badge-light py-2 px-2" style="font-size: medium; color: #0056b3">{{
+                        transfer.requestStatus }}</span>
+                    </div>
+                  </div>
+                  <hr />
+                  <!-- Student First Name -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Student First Name:</label>
+                    </div>
+                    <div class="col-sm-9" style="color: rgb(90, 88, 88)">
+                      {{ transfer.studentFName }}
+                    </div>
+                  </div>
+
+                  <!-- Student Last Name -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Student Last Name:</label>
+                    </div>
+                    <div class="col-sm-9" style="color: rgb(90, 88, 88)">
+                      {{ transfer.studentLName }}
+                    </div>
+                  </div>
+
+                  <!-- Student University Name -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Student University Name:</label>
+                    </div>
+                    <div class="col-sm-9" style="color: rgb(90, 88, 88)">
+                      {{ transfer.studentUniversityName }}
+                    </div>
+                  </div>
+
+                  <!-- Transfer Credit from Module -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Transfer Credit from Module:</label>
+                    </div>
+                    <div class="col-sm-9" style="color: rgb(90, 88, 88); font-weight: bold;">
+                      {{ transfer.requestedModuleName }} ({{ transfer.requestedUniName }})
+                    </div>
+                  </div>
+
+                  <!-- Module Credit -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Module Credit:</label>
+                    </div>
+                    <div class="col-sm-9" style="color: rgb(90, 88, 88)">
+                      {{ transfer.requestedModuleCredit }}
+                    </div>
+                  </div>
+
+                  <!-- Transfer Credit To Module -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Transfer Credit To Module:</label>
+                    </div>
+                    <div class="col-sm-9" style="color:  rgb(90, 88, 88); font-weight: bold;">
+                      {{ transfer.targetModuleName }} ({{ transfer.targetUniName }})
+                    </div>
+                  </div>
+
+                  <!-- Target Module Credit -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Module Credit:</label>
+                    </div>
+                    <div class="col-sm-9" style="color: rgb(90, 88, 88)">
+                      {{ transfer.targetModuleCredit }}
+                    </div>
+                  </div>
+
+                  <!-- Request Date -->
+                  <div class="row align-items-center mb-2">
+                    <div class="col-sm-3">
+                      <label>Date:</label>
+                    </div>
+                    <div class="col-sm-9" style="color: rgb(90, 88, 88)">
+                      {{ transfer.requestDate }}
+                    </div>
+                  </div>
+
+                  <ng-template #noTransfersTemplate>
+                    <p>No transfer requests currently.</p>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <app-footer-in></app-footer-in>
+</div>

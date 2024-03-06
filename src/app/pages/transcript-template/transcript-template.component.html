@@ -1,0 +1,94 @@
+<div class="wrapper">
+
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+
+  <div class="content-wrapper">
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row mb-5 pt-5 text-center">
+          <div class="col-12 text-center">
+            <img src="https://www.across-alliance.eu/wp-content/uploads/2023/01/Logo.svg"
+              class="brand-image elevation-0" alt="Across Logo Template" />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- University Information Card -->
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Student University Information</h3>
+              </div>
+              <div class="card-body">
+                <p><strong>Name: </strong> {{module.studentUniversityName}}</p>
+                <p><strong>Address: </strong> {{module.studentUniversityLocation}}</p>
+                <p>
+                  <strong>Email: </strong>
+                  <a target="_blank">{{module.studentUniversityEmail}}</a>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <!-- Student Information Card -->
+            <div class="card card-outline card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Student Information</h3>
+              </div>
+              <div class="card-body">
+                <p><strong>Name: </strong>{{module.studentFname}} {{module.studentLname}} </p>
+                <p><strong>Degree: </strong>Master </p>
+                <p><strong>Email: </strong>{{module.studentEmail}}</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <!-- Transcript Details Card -->
+            <div class="card card-outline card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Transcript Details</h3>
+              </div>
+              <div class="card-body p-0">
+                <table class="table table-bordered m-0">
+                  <thead>
+                    <tr>
+                      <th>Approver University Name</th>
+                      <th>From Module Code</th>
+                      <th> From Module Name</th>
+                      <th>To Module Code</th>
+                      <th> To Module Name</th>
+                      <th>Approved Credits</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{module.fromUniversityName}}</td>
+                      <td>{{module.fromModuleId}}</td>
+                      <td>{{module.fromModName}}</td>
+                      <td>{{module.toModuleId}}</td>
+                      <td>{{module.toModName}}</td>
+                      <td>{{module.creditsToBeTransferred}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: flex-end;">
+          <button class="btn btn-primary" (click)="printPage()">Print Transcript</button>
+        </div>
+      </div>
+
+
+    </section>
+  </div>
+
+  <app-footer-in></app-footer-in>
+
+</div>

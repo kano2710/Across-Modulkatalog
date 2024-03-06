@@ -1,0 +1,76 @@
+<div id="background1">
+  <main class="login-box">
+    <div class="card card-outline card-primary">
+      <div class="card-header text-center">
+        <img src="assets/Across_New.svg" alt="Logo" class="img-fluid" />
+      </div>
+      <div class="card-body">
+        <p class="login-box-msg text-bold">Login to Across</p>
+        <form action="#" method="post">
+          <div class="input-group mb-3">
+            <input
+              type="email"
+              [(ngModel)]="email"
+              name="email"
+              class="form-control"
+              placeholder="Email"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input
+              type="password"
+              [(ngModel)]="password"
+              name="password"
+              class="form-control"
+              placeholder="Password"
+              required
+            />
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col">
+              <button
+                type="submit"
+                class="btn btn-primary btn-block"
+                (click)="login()"
+              >
+                Sign In
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- <p class="mb-1">
+          <a href="../forgot-password">I forgot my password</a>
+        </p> -->
+        <p class="mb-0">
+          <a href="../create-account" class="text-center"
+            >Register a new membership</a
+          >
+        </p>
+      </div>
+    </div>
+    <p class="credit mt-2">
+      Photo by
+      <a
+        href="https://unsplash.com/@itfeelslikefilm?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >🇸🇮 Janko Ferlič</a
+      >
+      on
+      <a
+        href="https://unsplash.com/photos/photo-of-library-with-turned-on-lights-sfL_QOnmy00?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash"
+        >Unsplash</a
+      >
+    </p>
+  </main>
+</div>

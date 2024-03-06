@@ -1,0 +1,20 @@
+.invalid-field {
+    border: 2px solid red; 
+  }
+  
+  .error-message {
+    color: red; 
+    font-size: 0.875rem; 
+    margin-top: 5px; 
+  }
+  
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content-wrapper {
+    flex: 1;
+   
+  }

@@ -1,0 +1,120 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Enrolled Student | Dashboard</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/enrolled-student">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-6 col-sm-12 col-xs-12">
+            <div class="small-box bg-info">
+              <div class="inner">
+                <h3>{{ totalUni }}</h3>
+                <p>Affiliated University</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-university"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-sm-12 col-xs-12">
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{ totalModules }}</h3>
+                <p>Offered Modules</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="col-lg-4 col-4">
+            <div class="small-box bg-success">
+              <div class="inner">
+                <h3>{{ totalModulesOfEnrolledStud }}</h3>
+                <p>Enrolled Modules</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-book"></i>
+              </div>
+            </div>
+          </div> -->
+
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+
+            <div class="horizontal-timeline">
+
+              <ul class="list-inline items">
+                <li class="list-inline-item items-list">
+                  <div class="px-4">
+                    <div class="event-date badge badge-danger" style="font-weight: 500; font-size: medium;">Step 1</div>
+                    <h5 class="pt-2">Explore Modules</h5>
+                    <p class="text-muted">Explore and check the similar modules.</p>
+
+                  </div>
+                </li>
+
+                <li class="list-inline-item items-list">
+                  <div class="px-4">
+                    <div class="event-date badge badge-success" style=" font-weight: 500; font-size: medium;">Step 2
+                    </div>
+                    <h5 class="pt-2">Enrollment</h5>
+                    <p class="text-muted">Enroll for the similar module from the other university
+                    </p>
+
+                  </div>
+                </li>
+                <li class="list-inline-item items-list">
+                  <div class="px-4">
+                    <div class="event-date badge badge-warning"
+                      style="font-weight: 500; color: black; font-size: medium;">Step 3</div>
+                    <h5 class="pt-2">Request Credit Transfer</h5>
+                    <p class="text-muted">Request the cross university for credit transfer</p>
+
+                  </div>
+                </li>
+                <li class="list-inline-item items-list">
+                  <div class="px-4">
+                    <div class="event-date badge badge-info" style=" font-weight: 400; font-size: medium;">Step 4</div>
+                    <h5 class="pt-2">Check the Request</h5>
+                    <p class="text-muted">Check the status of yours request and credits earned
+                    </p>
+
+                  </div>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <app-footer-in></app-footer-in>
+</div>

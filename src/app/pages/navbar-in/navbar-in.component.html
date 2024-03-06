@@ -1,0 +1,38 @@
+<nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block" *ngIf="showSectionForRoles(['2'])">
+      <a href="/enrolled-student" class="nav-link">Dashboard</a>
+    </li>
+    <li class="nav-item d-none d-sm-inline-block" *ngIf="showSectionForRoles(['6'])">
+      <a href="/admin-dsb" class="nav-link">Dashboard</a>
+    </li>
+    <li class="nav-item d-sm-inline-block" *ngIf="showSectionForRoles(['6'])" >
+      <a href="/profile" class="nav-link">Profile</a>
+    </li>
+        <li class="nav-item d-sm-inline-block" *ngIf="showSectionForRoles(['2'])">
+      <a href="/profile-enrolled" class="nav-link">Profile</a>
+    </li>
+    
+    <!-- <li class="nav-item d-none d-sm-inline-block">
+      <a href="#" class="nav-link">Contact</a>
+    </li> -->
+  </ul>
+
+  <ul class="navbar-nav ml-auto d-flex align-items-center">
+    <li class="nav-item"> 
+      <img src="../../../assets/Across_New.svg" alt="Across Logo" class="brand-image mr-3" style="width: auto; height: 40px;"/> <!-- Adjust the sizing and remove width percentage, use auto or define px -->
+    </li>
+    <!-- <li class="nav-item"> 
+      <img src="../../../assets/TRS_Black_Color.png" alt="ZephWeb Logo" class="brand-image mr-3" style="width: auto; height: 40px;"/> <!-- Adjust the sizing and remove width percentage, use auto or define px -->
+    <!-- </li> -->
+    <li class="nav-item">
+      <a class="nav-link" href="/logout" (click)="logout()">
+        <i class="fas fa-sign-out-alt" style="height: 30px;"></i> Logout
+      </a>
+    </li>
+  </ul>
+  
+</nav>

@@ -1,0 +1,222 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <span
+    class="brand-text d-flex align-items-center justify-content-center"
+    style="
+      margin-bottom: 4px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-top: 7px;
+      color: #e1e3e4;
+      font-size: 1.5rem;
+    "
+    >Across University</span
+  >
+
+  <div class="sidebar">
+    <nav class="mt-2">
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input
+            class="form-control form-control-sidebar"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+            id="search"
+          />
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <!-- <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+          <a href="/profile" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>Profile</p>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+          <a href="/profile-enrolled" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>Profile</p>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+          <a href="/enrolled-student" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+          <a href="/admin-dsb" class="nav-link">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>Dashboard</p>
+          </a>
+        </li> -->
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['6'])"> 
+          <a [routerLink]="['/show-modules']" class="nav-link">
+            <i class="nav-icon fas fa-search"></i>
+            <p>Find Affiliated Modules</p>
+          </a>
+        </li>
+        
+        <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+          <a (click)="toggleMenu('userManagement')" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              User Management
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" [class.menu-open]="isMenuExpanded('userManagement')">
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/user-permissions']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-key nav-icon"></i>
+                <p>Permissions</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+          <a (click)="toggleMenu('userManagement')" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-graduation-cap"></i>
+            <p>
+              Course Management
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" [class.menu-open]="isMenuExpanded('userManagement')">
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/add-course']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-plus nav-icon"></i>
+                <p>Add Course</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/show-course']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-eye nav-icon"></i>
+                <p>Show Course</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+          <a (click)="toggleMenu('userManagement')" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Module Management
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" [class.menu-open]="isMenuExpanded('userManagement')">
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/add-module']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-plus nav-icon"></i>
+                <p>Add Module</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/module-list']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-eye nav-icon"></i>
+                <p>Show Modules</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+          <a (click)="toggleMenu('userManagement')" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-tasks"></i>
+            <p>
+              Exam Management
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview" [class.menu-open]="isMenuExpanded('userManagement')">
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/credit-transfer-request-admin']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-clock nav-icon"></i>
+                <p>Pending Requests</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/approved-requests']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-check nav-icon"></i>
+                <p>Approved Requests</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a [routerLink]="['/rejected-requests']" routerLinkActive="active" class="nav-link">
+                <i class="fas fa-ban nav-icon"></i>
+                <p>Rejected Requests</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <!-- <li class="nav-item" *ngIf="showSectionForRoles(['2', '6'])">
+          <a href="#" class="nav-link" (click)="preventDefault($event)">
+            <i class="nav-icon fas fa-cube"></i>
+            <p>
+              Offered Modules
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+              <a href="/show-modules-en" class="nav-link">
+                <i class="fas fa-eye nav-icon"></i>
+                <p>Show All Module</p>
+              </a>
+            </li>
+            <li class="nav-item" *ngIf="showSectionForRoles(['6'])">
+              <a href="/show-modules" class="nav-link">
+                <i class="fas fa-eye nav-icon"></i>
+                <p>Show All Module</p>
+              </a>
+            </li>
+          </ul>
+        </li> -->
+
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['2'])"> 
+          <a [routerLink]="['/show-modules-en']" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p>Offered Modules</p>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['2'])"> 
+          <a [routerLink]="['/enrolled-modules']" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-book-open"></i>
+            <p>Enrolled Modules</p>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+          <a [routerLink]="['/request-status']" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-exchange"></i>
+            <p>Transfer Requests</p>
+          </a>
+        </li>
+
+        <li class="nav-item" *ngIf="showSectionForRoles(['2'])">
+          <a [routerLink]="['/approved-requests-en']" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-check"></i>
+            <p>Credits Received</p>
+          </a>
+        </li>
+
+      </ul>
+    </nav>
+  </div>
+</aside>

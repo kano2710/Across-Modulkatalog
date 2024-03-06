@@ -1,0 +1,108 @@
+<div class="wrapper">
+  <app-navbar-in></app-navbar-in>
+  <app-sidebar></app-sidebar>
+
+  <div class="content-wrapper" style="min-height: 724px">
+    <div class="container-fluid">
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-1">
+            <div class="col-sm-6">
+              <h4 class="m-0">Enrolled Student | Enrolled Module Details</h4>
+            </div>
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item">
+                  <a href="/home">Home</a>
+                </li>
+                <li class="breadcrumb-item active">Enrolled Modules</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-12">
+              <!-- <div *ngIf="successMessage" class="alert alert-success" role="alert">
+                <i class="fas fa-check-circle"></i> {{ successMessage }}
+              </div>
+
+              <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                <i class="fas fa-times-circle"></i> {{ errorMessage }}
+              </div> -->
+
+              <div *ngFor="let module of modules" class="card module-detail-card shadow-lg">
+                <div class="card-body">
+                  <div class="col-12">
+                    <h4 class="badge badge-light py-2 px-2" style="color: #0056b3; margin-right: 5px">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0056b3"
+                        class="bi bi-bookmarks-fill" viewBox="0 0 16 16" style="margin-right: 5px">
+                        <path
+                          d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5z" />
+                        <path
+                          d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1z" />
+                      </svg>{{ module.courseId }} | {{ module.courseName }}
+                    </h4>
+
+                    <h4 class="badge badge-light py-2 px-2" style="color: #d9534f">
+                      <i class="fa fa-university" aria-hidden="true"
+                        style="margin-right: 5px; width: 16; height: 16"></i>{{
+                      module.universityId }} | {{ module.universityName }}
+                    </h4>
+                  </div>
+
+                  <div class="row mb-2">
+                    <div class="col-md-6 important-text">
+                      <strong>Module ID:</strong> {{ module.moduleId }}
+                    </div>
+                    <div class="col-md-6 important-text">
+                      <strong>Module Name:</strong> {{ module.moduleName }}
+                    </div>
+                  </div>
+
+                  <div class="mb-2">
+                    <label>Module Description:</label>
+                    <div style="color: rgb(90, 88, 88)">
+                      {{ module.moduleDescription }}
+                    </div>
+                  </div>
+                  <div class="mb-2 d-flex align-items-baseline">
+                    <label class="mr-2" style="margin-bottom: 0">Module Credit:</label>
+                    <div style="color: rgb(90, 88, 88)">{{ module.moduleCredit }}</div>
+                  </div>
+
+                  <div class="mb-2 d-flex align-items-baseline" *ngIf="module.requestStatus !== 'Not Available'">
+                    <label class="mr-2" style="margin-bottom: 0">Module Credit Tranfer Status:</label>
+                    <div style="color: rgb(90, 88, 88)">{{ module.requestStatus }}</div>
+                  </div>
+
+                  <div class="text-center mt-3">
+                    <div *ngIf="module.requestStatus == 'Not Available'">
+                      <button (click)="requestCreditTransfer(module)" class="btn btn-primary btn-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                          class="bi bi-patch-check-fill" viewBox="0 0 16 16" style="margin-right: 5px">
+                          <path
+                            d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708" />
+                        </svg>
+                        Transfer Credits
+                      </button>
+                      <button (click)="cancelEnrollment(module.moduleUId)" class="btn btn-danger btn-md ml-2">
+                        Cancel Enrollment
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <app-footer-in></app-footer-in>
+</div>

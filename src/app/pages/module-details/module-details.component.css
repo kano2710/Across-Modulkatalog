@@ -1,0 +1,81 @@
+.card {
+ padding: 10px;
+  margin-top: 20px;
+}
+
+.card-header {
+  background-color: #f8f8f8;
+  border-bottom: none;
+  padding: 10px 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-body {
+  padding: 5px;
+}
+
+.badge-light{
+  background-color: rgb(211, 211, 211);
+}
+
+.btn-primary {
+  background-color: #0056b3;
+  border-color: #004085;
+
+}
+
+.btn-primary:hover {
+  background-color: #0069d9;
+  border-color: #005cbf;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1, h2, h3, p {
+    font-size: smaller;
+  }
+}
+.important-text  {
+  color: #d9534f; /* Bootstrap 'danger' color for importance */
+  font-weight: 500;
+  font-size: medium;
+font-style: oblique;
+}
+.important-text strong {
+  color: black; /* Bootstrap 'danger' color for importance */
+  font-weight: bold;
+  font-size: large;
+}
+
+.module-detail-card {
+  border-color: #0056b3;
+  background-color: rgb(253, 253, 253);
+}
+label{
+  font-weight: 100;
+
+}
+.credit mb-2 {
+  display: flex;
+  align-items: baseline; /* This aligns the text baselines of the label and value */
+}
+
+.credit label {
+  margin-right: 10px;
+}
+
+.credit div {
+  color: rgb(90, 88, 88);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex: 1;
+ 
+}
